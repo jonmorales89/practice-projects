@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deal-52</title>
+    <script>
+
+        //Deck: S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,S12,S13
+        //      H1,H2,H3,H4,H5,H6,H7,H8,H9,H10,H11,H12,H13
+        //      D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13
+        //      C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13
+
+        var deck = [];
+        var discard = [];
+        var p1 = [];
+        var p2 = [];
+
+        for(var i = 0; i < 4; i++){
+            var suit = ['S', 'H','D', 'C'];
+            for(var j = 1; j < 14; j++){
+                deck.push(suit[i]+[j])
+            }
+        }
+
+        function assignCards(deck){
+            for(var i = 1; i < 11; i ++){
+                var randomNum = Math.floor((Math.random() * (deck.length-1)) + 1);
+                var randomCard = deck.splice(randomNum,1);
+                p1.push(randomCard);
+            }
+        }
+
+        assignCards(deck);
+        console.log(`Player 1 Deck: ${p1}`);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

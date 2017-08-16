@@ -6,10 +6,7 @@
     <script>
 
         function createCharacter(str){
-            var vowel = 'a' || 'e' || 'i' || 'o' || 'u';
-            if(str.charAt(0)!== vowel){
-                return 'invalid name';
-            } else {
+
                 var startingItem = [['helmet', 'chestArmor', 'handArmor', 'legArmor', 'necklace', 'TwoRings'],['shortSword','dagger','spear','hammer','crossBow','bowAndArrow']];
 
                 function randomStatGenerator(){
@@ -43,12 +40,13 @@
                 this.name = str;
 
                 this.items = itemGenerator()
-            }
         }
 
-        var character1 = new createCharacter('apple');
+        var character1 = new createCharacter('edwardo');
+        var character2 = new createCharacter('ulysses');
 
         console.log(character1);
+        console.log(character2);
 
     </script>
 </head>

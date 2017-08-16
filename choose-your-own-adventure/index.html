@@ -5,6 +5,51 @@
     <title>Choose your adventure</title>
     <script>
 
+        function createCharacter(str){
+            var vowel = 'a' || 'e' || 'i' || 'o' || 'u';
+            if(str.charAt(0)!== vowel){
+                return 'invalid name';
+            } else {
+                var startingItem = [['helmet', 'chestArmor', 'handArmor', 'legArmor', 'necklace', 'TwoRings'],['shortSword','dagger','spear','hammer','crossBow','bowAndArrow']];
+
+                function randomStatGenerator(){
+                    var stat = 0;
+                    for(var i = 0; i < 3; i++){
+                        var randomStat = Math.floor((Math.random()*6) + 1);
+                        stat += randomStat;
+                    }
+                    return stat;
+                }
+
+                function itemGenerator(){
+                    itemObj = {};
+
+                    var randomItem = Math.floor((Math.random() * startingItem[0].length-1) + 1);
+                    itemObj.apparel = startingItem[0][randomItem];
+                    itemObj.weapon = startingItem[1][randomItem];
+
+                    return itemObj;
+                }
+
+                this.stats = {
+                    strength: randomStatGenerator(),
+                    dexterity: randomStatGenerator(),
+                    intelligence: randomStatGenerator(),
+                    charisma: randomStatGenerator(),
+                    constitution: randomStatGenerator(),
+                    willPower: randomStatGenerator()
+                }
+
+                this.name = str;
+
+                this.items = itemGenerator()
+            }
+        }
+
+        var character1 = new createCharacter('apple');
+
+        console.log(character1);
+
     </script>
 </head>
 <body>
